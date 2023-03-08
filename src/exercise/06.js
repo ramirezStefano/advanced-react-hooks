@@ -3,11 +3,20 @@
 
 import * as React from 'react'
 
+//this value is used as the second argment for the useDebugValue.
+const formatDebugValue = ({query, state}) => `\`${query}\` => ${state}`
+
 function useMedia(query, initialState = false) {
   const [state, setState] = React.useState(initialState)
 
   //implementing the useDebugValue
-  React.useDebugValue(`\`${query}\` => ${state}`)
+
+  
+
+  //implementing the extra credit 1, using the second argument of the useDebugValue()
+  //that works as a formatter. 
+  //used when we just want the computation to happen when devtools is open.
+  React.useDebugValue({query, state}, formatDebugValue)
 /*
 when looking at th devtools there is a change after implementing the useDebugValue,
 more information is displayed on the width and the status of the hook.
