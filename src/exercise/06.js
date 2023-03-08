@@ -5,6 +5,15 @@ import * as React from 'react'
 
 function useMedia(query, initialState = false) {
   const [state, setState] = React.useState(initialState)
+
+  //implementing the useDebugValue
+  React.useDebugValue(`\`${query}\` => ${state}`)
+/*
+when looking at th devtools there is a change after implementing the useDebugValue,
+more information is displayed on the width and the status of the hook.
+*/
+
+
   // 🐨 call React.useDebugValue here.
   // 💰 here's the formatted label I use: `\`${query}\` => ${state}`
 
